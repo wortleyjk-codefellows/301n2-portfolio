@@ -1,0 +1,65 @@
+#wrapper{
+  margin:0px;
+}
+.blue{
+  background-color: blue;
+}
+.red{
+  background-color: red;
+}
+.yellow{
+  background-color: yellow;
+}
+.col-1{
+  width:8%;
+}
+.col-2{
+  width: 16%;
+}
+.col-3{
+  width: 25%
+}
+.col-4{
+  width: 33%;
+}
+.col-8{
+  width: 66%;
+}
+.col-9{
+  width: 75%;
+}
+.col-10{
+  width: 84%;
+}
+.col-11{
+  width: 92%;
+}
+.col-12{
+  width: 100%;
+}
+.row-2{
+  height: 16%;
+}
+.row-3{
+  height: 25%
+}
+.row-4{
+  height: 33%;
+}
+.row-8{
+  height: 66%;
+}
+.row-9{
+  height: 75%;
+}
+.row-12{
+  height:100%;
+}
+.left{
+  align: left;
+  float: left;
+}
+.border{
+  box-sizing: border-box;
+  border: 1px solid;
+}
