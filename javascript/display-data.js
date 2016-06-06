@@ -1,7 +1,7 @@
 //TODO: write the display functions to render the page
-var collection = [];
+var articles = [];
 
-var data = function(param){
+var Article = function(param){
   this.library = param.library;
   this.libraryURL = param.libraryURL;
   this.category = param.category;
@@ -9,18 +9,25 @@ var data = function(param){
   this.review = param.review;
 }
 
-data.prototype.display = function(){
-  $('#library-name').append(this.library);
-  $('#library-url').attr('href',this.libraryURL);
-  $('#library-url').append(this.libraryURL);
-  $('#content-review-template').append('<hr>');
+Article.prototype.display = function(){
+  var $template = $('article.template').clone();
+  $template.attr('data-category',this.category).css('color','white');
+  $template.find('h1').css('margin','0px');
+  $template.find('h1>a').text(this.library).css({'text-decoration':'none','color':'white'});
+  $template.find('h1>a').attr('href',this.libraryURL);
+  $template.find('time').append(this.dateTested);
+  $template.find('#review-content').html(this.review);
+  $template.append('<hr>')
+  $template.removeClass('template');
+  return $template;
 }
 
 $(document).ready(function(){
   searchResult.forEach(function(elem){//push all the data into the collection array
-    collection.push(new data(elem));
+    articles.push(new Article(elem))
   });
-  collection.forEach(function(elem){
-    $('#content-review-template').append(elem.display());
+
+  articles.forEach(function(elem){
+    $('#content-display').append(elem.display());
   });
 });

@@ -1,0 +1,9 @@
+.navigation-wrapper{
+  height:3em;
+  width:100%;
+  background-color: #222222;
+  display:block;
+}
+.template{
+  display:none;
+}
