@@ -30,4 +30,17 @@ $(document).ready(function(){
   articles.forEach(function(elem){
     $('#content-display').append(elem.display());
   });
+  $('a.ion-document-text').on('click',function(e){
+    e.preventDefault();
+    $('#about-me').hide();
+    $('#content-display').fadeIn(1000);
+  })
+  $('a.ion-ios-person').on('click',function(e){
+    e.preventDefault();
+    $('#content-display').hide();
+    $('#about-me').fadeIn(1000);
+  });
+  $('a.ion-document-text').click();
 });
+
+
