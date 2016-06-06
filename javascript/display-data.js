@@ -1,7 +1,7 @@
 //TODO: write the display functions to render the page
-var articles = [];
+var collection = [];
 
-var Article = function(param){
+var Data = function(param){
   this.library = param.library;
   this.libraryURL = param.libraryURL;
   this.category = param.category;
@@ -9,7 +9,7 @@ var Article = function(param){
   this.review = param.review;
 }
 
-Article.prototype.display = function(){
+Data.prototype.display = function(){
   var $template = $('article.template').clone();
   $template.attr('data-category',this.category).css('color','white');
   $template.find('h1').css('margin','0px');
@@ -24,10 +24,10 @@ Article.prototype.display = function(){
 
 $(document).ready(function(){
   searchResult.forEach(function(elem){//push all the data into the collection array
-    articles.push(new Article(elem))
+    collection.push(new Data(elem))
   });
 
-  articles.forEach(function(elem){
+  collection.forEach(function(elem){
     $('#content-display').append(elem.display());
   });
   $('a.ion-document-text').on('click',function(e){
