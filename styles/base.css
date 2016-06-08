@@ -33,3 +33,7 @@ article:nth-child(odd){
 article:nth-child(even){
   background-color:#666666;
 }
+select{
+  width: 100%;
+  text-align: center;
+}

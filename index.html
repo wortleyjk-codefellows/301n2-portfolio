@@ -7,29 +7,28 @@
   <link href="vendor/font/css/ionicons.css" rel="stylesheet">
   <link href="styles/base.css" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="javascript/data.js"></script>
+  <script src="javascript/data.js"></script>
   <script src="javascript/display-data.js"></script>
 </head>
 <body>
   <div id='wrapper'>
     <nav>
+      <div class='mobile-icon ion-navicon-round'>
+      </div>
       <div class='navigation-wrapper'>
         <ul>
           <li class='ion-home'>Home</li>
           <li><a  class='ion-social-github' href="https://github.com/wortleyjk-codefellows/">GitHub</a></li>
           <li><a class='ion-social-linkedin' href="https://www.linkedin.com/in/james-wortley-42077814">LinkedIn</a></li>
-          <li><a class='ion-document-text' href="#">Reviews</a></li>
+          <li><a class='ion-document-text' href="#">Blog</a></li>
           <li><a class='ion-ios-person' href="#">About me</a></li>
       </ul>
       </div>
     </nav>
     <section id='content-display'>
-      <article class='template' data-category = ''>
-        <h1><a id='title' href="#"></a></h1>
-        <time datetime="2000-01-01">Date Reviewed: </time>
-        <section id='review-content'>
-        </section>
-      </article>
+      <select id='category-filter'>
+        <option value=''>--Select a Category--</option>
+      </select>
     </section>
     <section id='about-me'>
       about me goes here!
