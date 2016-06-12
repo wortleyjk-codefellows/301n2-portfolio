@@ -39,9 +39,18 @@
   padding:10px;
   margin:30px;
   max-width: 250px;
+  min-height: 200px;
   display: block;
   float: left;
   text-overflow: ellipsis;
+  }
+
+.reviewContent {
+  height: inherit;
+  }
+
+.reviewContent p {
+  overflow: ellipsis;
   }
 }
 
@@ -91,8 +100,24 @@
 }
 
 @media screen and (min-width:801px) and (max-width: 1200px){
+  .mobile-icon{
+    display: none;
+  }
+  .navigation-wrapper{
+    display:block !important;
+    height:2em;
+    width:100%;
+    background-color: #222222;
+    }
   .review-element{
-    padding: 25px;
+    margin:20px;
     transition: all 1s linear;
+    padding: 25px;
+    width: 350px;
+    height: 250px;
+    display: block;
+    float: left;
+    text-overflow: ellipsis;
+    }
   }
 }
