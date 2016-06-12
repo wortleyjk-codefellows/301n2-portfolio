@@ -9,48 +9,8 @@ var Data = function(param){
   this.review = param.review;
 }
 
-var createArticle = function(element){
-  var $Article = jQuery('<article/>',{
-    'data-category':element.category,
-  });
-  var $URLHeader = jQuery('<h1/>').css('margin','0px');
-  var $URL = jQuery('<a/>',{
-    text:element.article,
-    href:element.articleURL
-  })
-  .css({'text-decoration':'none',
-    'color':'white'
-  });
-  var $Time = jQuery('<time/>',{
-    text:'Blog Written: '+element.blogDate
-  }).css('color','white');
-  var $ReviewContent = jQuery('<section/>',{
-    html:element.review
-  });
-  var $TeaserLink = jQuery('<a/>',{
-    text:"Read More...",
-    href:"#"
-  }).css({'text-decoration':'none',
-    'color':'white'
-  }).addClass('read-more');
-  var $HorizontalRule = jQuery('<hr/>').css('color','red');
-  $ReviewContent.find('p').css({'margin':'0px','color':'white','text-align':'justify'});
-  $URLHeader.append($URL);
-  $Article.append($URLHeader);
-  $Article.append($Time);
-  $Article.append($ReviewContent);
-  var numberOfParagraphs = $ReviewContent.find('p').length;
-  console.log(numberOfParagraphs);
-  if(numberOfParagraphs > 1){
-    $ReviewContent.find('p:nth-child(2n)').hide();
-    $Article.append($TeaserLink);
-  }
-  $Article.append($HorizontalRule);
-  $('#content-display').append($Article);
-}
-
 var populateCategoryDropdown = function(element){
-  var $categoryOption = jQuery('<option/>',{
+  var $categoryOption = $('<option/>',{
       text:element,
       value:element
     });
@@ -82,12 +42,12 @@ var eventListeners = function(){
   })
   $('a.read-more').on('click',function(e){
     e.preventDefault();
-    $(this).prev().find('p').slideDown(500);
+    $(this).parent().find('p').slideDown(500);
     $(this).hide();
   });
   $('.mobile-icon').on('click',function(e){
     e.preventDefault();
-    $('.navigation-wrapper').slideDown(500);
+    $('.navigation-wrapper').toggle(500);
   });
 }
 
@@ -97,7 +57,9 @@ var populatePageData = function(){
   });
 
   blogCollection.forEach(function(elem){
-    createArticle(elem);
+    var templateScript = $('#template').html();
+    var template = Handlebars.compile(templateScript);
+    $('#content-display').append(template(elem));
   });
   populateBlogFilter();
   categoryCollection.forEach(function(elem){
@@ -116,8 +78,21 @@ var populateBlogFilter = function(){
   });
 }
 
+var enableTeaserLinks = function(){
+  $('.reviewContent').each(function(index,element){
+    if($(this).find('p').length<2){
+      $(this).find('.read-more').detach();
+    }
+    else{
+      $(this).find('p').slice(1).hide();
+
+    }
+  });
+}
+
 $(document).ready(function(){
   populatePageData();
+  enableTeaserLinks();
   eventListeners();
   $('a.ion-document-text').click();
 });

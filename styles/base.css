@@ -1,11 +1,15 @@
 body{
   margin:0px;
-  font-family: Futura;
+  font-family: monospace;
+  background: url('../img/nebula.jpg');
+  background-size: cover;
 }
 nav ul{
   height:inherit;
   margin: 0px auto;
   float:left;
+  padding-left: 0px;
+  max-width: 100%;
 }
 nav ul li{
   padding-left: 0.5em;
@@ -16,7 +20,6 @@ nav ul li{
   background-color:inherit;
   color:white;
   height:inherit;
-  display:table-cell;
   vertical-align: middle;
 }
 li a{
@@ -25,15 +28,28 @@ li a{
 }
 hr{
   margin: 0px;
-  border-color:red;
+  color:red;
 }
-article:nth-child(odd){
-  background-color:#333333;
-}
-article:nth-child(even){
-  background-color:#666666;
+article{
+  background-color: rgba(0,0,0,0);
 }
 select{
   width: 100%;
   text-align: center;
 }
+article h1{
+  font-family: 'Rokkitt', serif;
+  color:white;
+  margin-bottom: 1px;
+}
+p,h2,h1{
+  font-family: 'Gruppo', cursive;
+  color:white;
+  margin: 1px;
+}
+a{
+  font-family: 'Rokkitt', serif;
+}
+
+
+
