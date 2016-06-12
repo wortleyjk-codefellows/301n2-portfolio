@@ -36,13 +36,17 @@ var eventListeners = function(){
       $('#content-display > article').show();
     }
     var $Article = $('#content-display > article')
-    $Article.hide();
-    $("article[data-category='"+categoryValue+"'").slideDown(500);
+    $Article.hide(400);
+    //$("article[data-category='"+categoryValue+"'").slideDown(500);
+    $("article[data-category='"+categoryValue+"'").show(400);
     $('#category-filter > option:eq(0)').text('--Show All--');
   })
   $('a.read-more').on('click',function(e){
     e.preventDefault();
-    $(this).parent().find('p').slideDown(500);
+    $(this).parent().parent().animate({'width':'90%'})
+    .find('p').slideDown(500);
+    $(this).parent().parent().css({'height':'inherit'});
+    //$(this).parent().find('p').slideDown(500);
     $(this).hide();
   });
   $('.mobile-icon').on('click',function(e){

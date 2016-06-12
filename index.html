@@ -39,11 +39,14 @@
   </div>
   <script id="template" type="text/x-handlebars-template">
     <article data-category={{category}}>
+    <div class='review-element'>
       <h1>{{article}}</h1>
       <hr/>
       <div class='reviewContent'>{{{review}}}
+      <hr/>
       <a href=# class='read-more'>Read More...</a>
       </div>
+    </div>
     </article>
   </script>
   <script src="javascript/data.js"></script>
