@@ -1,3 +1,11 @@
+.review-element{
+  background-color: #222;
+  padding: 10px;
+  border-radius: 5px;
+}
+#content-display{
+  margin: auto;
+}
 .read-more{
   text-decoration: none;
   color: white;
@@ -6,7 +14,7 @@
   display: none;
 }
 .visible{
-  display: block;
+  display: inline;
 }
 
 @media screen and (min-width: 100px) and (max-width: 609px){
@@ -17,19 +25,28 @@
   background-color: #222222;
   font-size:1.5em;
 }
-  .navigation-wrapper {
+.navigation-wrapper {
     display: none;
     overflow: auto;
     background-color: #222222;
   }
-  .navigation-wrapper ul{
+.navigation-wrapper ul{
     width: 100%;
     padding-left: 0px;
   }
-  .navigation-wrapper ul li{
+.navigation-wrapper ul li{
     text-align: center;
     width: 100%;
     overflow: auto;
+  }
+.review-element{
+    margin:30px;
+  }
+.review-element{
+  max-width: 250px;
+  display: block;
+  float: left;
+  text-overflow: ellipsis;
   }
 }
 
@@ -43,5 +60,15 @@
   height:2em;
   width:100%;
   background-color: #222222;
+  }
+.review-element{
+  margin:20px;
+  }
+.review-element{
+  width: 300px;
+  height: 200px;
+  display: block;
+  float: left;
+  text-overflow: ellipsis;
   }
 }

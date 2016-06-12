@@ -1,8 +1,9 @@
 body{
   margin:0px;
   font-family: monospace;
-  background: url('../img/nebula.jpg');
-  background-size: cover;
+  /*background: url('../img/nebula.jpg');
+  background-size: cover;*/
+  background-color: #444;
 }
 nav ul{
   height:inherit;
@@ -39,12 +40,12 @@ select{
 }
 article h1{
   font-family: 'Rokkitt', serif;
-  color:white;
+  color:Beige;
   margin-bottom: 1px;
 }
 p,h2,h1{
   font-family: 'Gruppo', cursive;
-  color:white;
+  color:Beige;
   margin: 1px;
 }
 a{
