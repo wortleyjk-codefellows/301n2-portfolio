@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width,height=device-height">
   <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/4.1.1/normalize.css">
   <link rel="stylesheet" type="text/css" href="styles/positioning.css" >
   <link rel="stylesheet" type="text/css" href="styles/module.css" >
@@ -11,13 +12,13 @@
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js'></script>
 </head>
 <body>
-  <div id='wrapper'>
+  <div id='pageWrapper'>
     <nav>
       <div class='mobile-icon ion-navicon-round'>
       </div>
       <div class='navigation-wrapper'>
         <ul>
-          <li class='ion-home'>Home</li>
+          <li><a href="#" class='ion-home'>Home</a></li>
           <li><a  class='ion-social-github' href="https://github.com/wortleyjk-codefellows/">GitHub</a></li>
           <li><a class='ion-social-linkedin' href="https://www.linkedin.com/in/james-wortley-42077814">LinkedIn</a></li>
           <li><a class='ion-document-text' href="#">Blog</a></li>
@@ -25,7 +26,10 @@
       </ul>
       </div>
     </nav>
-    <section id='content-display'>
+    <section id='home-wrapper'>
+      <div id='home-content'></div>
+    </section>
+    <section id='blog-display'>
       <select id='category-filter'>
         <option value=''>--Select a Category--</option>
       </select>
@@ -36,7 +40,6 @@
       <br>
       <p>My hobbies include table tennis, bowling and billiards. On my spare time, I test to read up on the latest javascript libraries to keep up to date with the most recent solutions to software challenges.</p>
     </section>
-  </div>
   <script id="template" type="text/x-handlebars-template">
     <article data-category={{category}}>
     <div class='review-element'>
@@ -51,6 +54,7 @@
   </script>
   <script src="javascript/data.js"></script>
   <script src="javascript/display-data.js"></script>
-
+  <script src="javascript/events.js"></script>
+  </div>
 </body>
 </html>
