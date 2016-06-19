@@ -52,9 +52,14 @@
     </div>
     </article>
   </script>
-  <script src="javascript/data.js"></script>
-  <script src="javascript/display-data.js"></script>
-  <script src="javascript/events.js"></script>
   </div>
+  <script src="javascript/events.js"></script>
+  <script src="javascript/display-data.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    Data.populatePage();
+    $('a.ion-document-text').click();
+  });
+  </script>
 </body>
 </html>

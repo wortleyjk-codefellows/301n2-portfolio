@@ -11,6 +11,7 @@ var showBlog = function(){
     e.preventDefault();
     $('section').hide()
     $('#blog-display').slideDown(500);
+    enableTeaserLinks();
   });
 }
 var showAboutMe = function(){
@@ -61,22 +62,25 @@ var enableTeaserLinks = function(){
     }
     else{
       $(this).find('p').slice(1).hide();
-
     }
   });
 }
-
-var pageEventListeners = function(){
-  showHome();
-  showBlog();
-  showAboutMe();
-  filterCategoryChange();
-  displayMobileMenu();
-  showTeaserArticle();
-}
-
-$(document).ready(function(){
-  pageEventListeners();
-  enableTeaserLinks();
-  $('a.ion-document-text').click();
+//show Home
+$('a.ion-home').on('click',function(e){
+    e.preventDefault();
+    $('section').hide();
+    $('#home-wrapper').slideDown(400);
 });
+//show Blog
+$('a.ion-document-text').on('click',function(e){
+    e.preventDefault();
+    $('section').hide()
+    $('#blog-display').slideDown(500);
+});
+//show About
+$('a.ion-ios-person').on('click',function(e){
+    e.preventDefault();
+    $('section').hide();
+    $('#about-me').slideDown(500)
+});
+

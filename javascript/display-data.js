@@ -1,4 +1,5 @@
 //TODO: write the display functions to render the page
+(function(module){
 var blogCollection = [];
 var categoryCollection = [];
 var Data = function(param){
@@ -16,38 +17,36 @@ var populateCategoryDropdown = function(element){
   $('#category-filter').append($categoryOption);
 }
 
-var populateBlogFilter = function(arr){
-  arr.forEach(function(elem){
-    var isInArray = $.inArray(arr.category,categoryCollection);
-    if(isInArray == -1){//-1 means it is not in the array
-      categoryCollection.push(elem.category);
-    }
-    else{
-      //do nothing
-    }
-  });
+var populateBlogFilter = function(elem){
+  var isInArray = $.inArray(elem.category,categoryCollection);
+  if(isInArray == -1){
+    categoryCollection.push(elem.category);
+    populateCategoryDropdown(elem.category);
+  }
+  else{
+    //do nothing
+  }
 }
 
-var populatePageData = function(){
-    searchResult.forEach(function(elem){//push all the data into the collection array
-    blogCollection.push(new Data(elem))
-  });
-
-  blogCollection.forEach(function(elem){
-    var templateScript = $('#template').html();
-    var template = Handlebars.compile(templateScript);
-    $('#blog-display').append(template(elem));
-  });
-  populateBlogFilter(blogCollection);
-  categoryCollection.forEach(function(elem){
-    populateCategoryDropdown(elem);
+Data.populatePage = function(){
+  $.get('data/data.json',function(data){
+    data.forEach(function(elem){
+      blogCollection.push(elem);
+      var templateScript = $('#template').html();
+      var template = Handlebars.compile(templateScript);
+      $('#blog-display').append(template(elem));
+      populateBlogFilter(elem)
+    })
+  }).done(function(){
+    enableTeaserLinks();
+    showTeaserArticle();
   });
 }
+module.Data = Data
+})(window)
 
 
-$(document).ready(function(){
-  populatePageData();
-});
+
 
 
 
