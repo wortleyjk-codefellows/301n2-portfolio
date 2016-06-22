@@ -44,24 +44,21 @@ var enableTeaserLinks = function(){
   });
 }
 $('a').on('click',function(e){
+  $('section').hide();
   if($(this).hasClass('ion-ios-book-outline')){ //show guestbook
     e.preventDefault();
-    $('section').hide();
     $('#guest-book').slideDown(500)
   }
   else if($(this).hasClass('ion-ios-person')){//show about
     e.preventDefault();
-    $('section').hide();
     $('#about-me').slideDown(500)
   }
   else if($(this).hasClass('ion-document-text')){ //show blog
     e.preventDefault();
-    $('section').hide()
     $('#blog-display').slideDown(500);
   }
   else if($(this).hasClass('ion-home')){
     e.preventDefault();
-    $('section').hide();
     $('#home-wrapper').slideDown(400);
   }
 });
