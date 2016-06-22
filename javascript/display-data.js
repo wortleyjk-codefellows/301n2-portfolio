@@ -1,6 +1,5 @@
 //TODO: write the display functions to render the page
 (function(module){
-var blogCollection = [];
 var categoryCollection = [];
 var Data = function(param){
   this.article = param.article;
@@ -28,16 +27,28 @@ var populateBlogFilter = function(elem){
   }
 }
 
-Data.populatePage = function(){
-  $.get('data/data.json',function(data){
-    data.forEach(function(elem){
-      blogCollection.push(elem);
+Data.populateBlogPage = function(){
+  $.get('data/data.json',function(data,text,xhr){
+    var value = [];
+    responseETag = xhr.getResponseHeader('Etag');
+    if(localStorage.getItem('eTag')===null||responseETag!=localStorage.getItem('eTag')){
+      localStorage.setItem('eTag',responseETag);
+      localStorage.setItem('blogArticles',JSON.stringify(data));
+      value = data;
+    }
+    else{
+      value = JSON.parse(localStorage.getItem('blogArticles'));
+    }
+    var blogCollection = [];
+    value.map(function(elem){
       var templateScript = $('#template').html();
       var template = Handlebars.compile(templateScript);
       $('#blog-display').append(template(elem));
-      populateBlogFilter(elem)
-    })
-  }).done(function(){
+      populateBlogFilter(elem);
+      return blogCollection.push(elem);
+    });
+  })
+  .done(function(){
     enableTeaserLinks();
     showTeaserArticle();
   });

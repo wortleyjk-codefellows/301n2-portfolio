@@ -43,23 +43,27 @@ var enableTeaserLinks = function(){
     }
   });
 }
-//show Home
-$('a.ion-home').on('click',function(e){
+$('a').on('click',function(e){
+  if($(this).hasClass('ion-ios-book-outline')){ //show guestbook
     e.preventDefault();
     $('section').hide();
-    $('#home-wrapper').slideDown(400);
-});
-//show Blog
-$('a.ion-document-text').on('click',function(e){
-    e.preventDefault();
-    $('section').hide()
-    $('#blog-display').slideDown(500);
-});
-//show About
-$('a.ion-ios-person').on('click',function(e){
+    $('#guest-book').slideDown(500)
+  }
+  else if($(this).hasClass('ion-ios-person')){//show about
     e.preventDefault();
     $('section').hide();
     $('#about-me').slideDown(500)
+  }
+  else if($(this).hasClass('ion-document-text')){ //show blog
+    e.preventDefault();
+    $('section').hide()
+    $('#blog-display').slideDown(500);
+  }
+  else if($(this).hasClass('ion-home')){
+    e.preventDefault();
+    $('section').hide();
+    $('#home-wrapper').slideDown(400);
+  }
 });
 
 //category filter change
