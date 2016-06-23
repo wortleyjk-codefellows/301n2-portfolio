@@ -1,5 +1,5 @@
 //TODO: write the display functions to render the page
-(function(module){
+(function (module){
 var Data = function(param){
   this.article = param.article;
   this.articleURL = param.articleURL;
@@ -29,13 +29,13 @@ Data.populateBlogPage = function(){
     }
   });
   value = JSON.parse(localStorage.getItem('blogArticles'));
-  var blogCollection = value.map(function(elem){
+  Data.blogCollection = value.map(function(elem){
     var templateScript = $('#template').html();
     var template = Handlebars.compile(templateScript);
     $('#blog-display').append(template(elem));
     return elem;
   });
-  var categoryCollection = blogCollection.map(function(elem){
+  Data.categoryCollection = Data.blogCollection.map(function(elem){
     return elem.category;
   }).reduce(function(currentElem,nextElem){
     if(currentElem.indexOf(nextElem)==-1){
@@ -48,7 +48,7 @@ Data.populateBlogPage = function(){
   showTeaserArticle();
 }
 module.Data = Data
-})(window)
+})(window);
 
 
 
