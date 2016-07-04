@@ -10,6 +10,7 @@
   <link href='https://fonts.googleapis.com/css?family=Rokkitt:700|Gruppo' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js'></script>
+
 </head>
 <body>
   <div id='pageWrapper'>
@@ -18,12 +19,12 @@
       </div>
       <div class='navigation-wrapper'>
         <ul>
-          <li><a href="#" class='ion-home'>Home</a></li>
-          <li><a  class='ion-social-github' href="https://github.com/wortleyjk-codefellows/">GitHub</a></li>
+          <li><a href="/home" class='ion-home'>Home</a></li>
+          <li><a class='ion-social-github' href="https://github.com/wortleyjk-codefellows/">GitHub</a></li>
           <li><a class='ion-social-linkedin' href="https://www.linkedin.com/in/james-wortley-42077814">LinkedIn</a></li>
-          <li><a class='ion-document-text' href="#">Blog</a></li>
-          <li><a class='ion-ios-person' href="#">About me</a></li>
-          <li><a class='ion-ios-book-outline' href="#">Guest Book</a></li>
+          <li><a class='ion-document-text' href="/blog">Blog</a></li>
+          <li><a class='ion-ios-person' href="/about">About me</a></li>
+          <li><a class='ion-ios-book-outline' href="guestbook">Guest Book</a></li>
       </ul>
       </div>
     </nav>
@@ -43,6 +44,13 @@
     </section>
     <section id='guest-book'>
       <h1>Guest Book</h1>
+      <form>
+        <div class='form-group'><div class='form-title'>Name: </div><input type='text' id='guest-name' class='guest-form' placeholder='Enter your name'/></div>
+        <div class='form-group'>
+        <div class='form-title'>Email: </div><input type='text' id='guest-email' class='guest-form' placeholder='Enter your email address'/></div>
+        <div class='form-group'>
+        <div class='form-title'>Message: </div><input type='text' id='guest-message' class='guest-form' placeholder='Enter your feedback'/></div>
+      </form>
     </section>
   <script id="template" type="text/x-handlebars-template">
     <article data-category={{category}}>
@@ -50,15 +58,17 @@
       <h1>{{article}}</h1>
       <hr/>
       <div class='reviewContent'>{{{review}}}
+      </div>
       <hr/>
       <a href=# class='read-more'>Read More...</a>
-      </div>
     </div>
     </article>
   </script>
   </div>
   <script src="javascript/events.js"></script>
   <script src="javascript/display-data.js"></script>
+  <script type="text/javascript" src='javascript/page.js'></script>
+  <script type="text/javascript" src='javascript/routes.js'></script>
   <script type="text/javascript">
   $(document).ready(function(){
     Data.populateBlogPage();

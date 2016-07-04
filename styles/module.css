@@ -16,17 +16,26 @@
   background-color: #222;
   padding: 3px;
   border-radius: 5px;
-
+  overflow: hidden;
+  transition: all 0.5s linear;
+  display: block;
+  float: left;
 }
 .read-more{
   text-decoration: none;
   color: white;
 }
-.review-element{
-  transition: all 0.5s linear;
-  display: block;
-  float: left;
-  text-overflow: ellipsis;
+.form-group{
+  margin:10px;
+  width: 100%;
+}
+.form-title{
+  width:15%;
+  float:left;
+  overflow: ellipsis;
+}
+.guest-form{
+  width:80%;
 }
 #content-display{
   margin: auto;
@@ -67,7 +76,7 @@
   }
 }
 
-@media screen and (min-width:400px) and (max-width: 654px){
+@media screen and (min-width:400px) and (max-width: 703px){
 .mobile-icon{
   color: white;
   height:1.5em;
@@ -97,7 +106,7 @@
   }
 }
 
-@media screen and (min-width:655px) and (max-width: 755px){
+@media screen and (min-width:704px) and (max-width: 755px){
 .mobile-icon{
   display: none;
 }
@@ -146,7 +155,11 @@
   height: 200px;
   display: block;
   float: left;
-  text-overflow: ellipsis;
+  }
+  .reviewContent{
+  height:150px;
+  overflow: hidden;
+  text-overflow:ellipsis;
   }
 }
 
