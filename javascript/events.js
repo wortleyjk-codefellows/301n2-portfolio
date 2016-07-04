@@ -19,9 +19,9 @@ var filterCategoryChange = function(){
 var showTeaserArticle = function(){
     $('a.read-more').on('click',function(e){
     e.preventDefault();
-    $(this).parent().parent().animate({'width':'90%'})
-    .find('p').slideDown(500);
-    $(this).parent().parent().css({'height':'inherit'});
+    $(this).parent().find('p').slideDown(500);
+    $(this).prev().prev().parent().animate({'width':'90%','height':'inherit'});
+    //$(this).css({'height':'inherit'});
     $(this).hide();
   });
 }
@@ -43,25 +43,45 @@ var enableTeaserLinks = function(){
     }
   });
 }
-$('a').on('click',function(e){
+
+//deprecated by using Routes.js
+// $('a').on('click',function(e){
+//   $('section').hide();
+//   if($(this).hasClass('ion-ios-book-outline')){ //show guestbook
+//     e.preventDefault();
+//     $('#guest-book').slideDown(500)
+//   }
+//   else if($(this).hasClass('ion-ios-person')){//show about
+//     e.preventDefault();
+//     $('#about-me').slideDown(500)
+//   }
+//   else if($(this).hasClass('ion-document-text')){ //show blog
+//     e.preventDefault();
+//     $('#blog-display').slideDown(500);
+//   }
+//   else if($(this).hasClass('ion-home')){ //show home
+//     e.preventDefault();
+//     $('#home-wrapper').slideDown(400);
+//   }
+// });
+
+var showHome = function(){
   $('section').hide();
-  if($(this).hasClass('ion-ios-book-outline')){ //show guestbook
-    e.preventDefault();
-    $('#guest-book').slideDown(500)
-  }
-  else if($(this).hasClass('ion-ios-person')){//show about
-    e.preventDefault();
-    $('#about-me').slideDown(500)
-  }
-  else if($(this).hasClass('ion-document-text')){ //show blog
-    e.preventDefault();
-    $('#blog-display').slideDown(500);
-  }
-  else if($(this).hasClass('ion-home')){
-    e.preventDefault();
-    $('#home-wrapper').slideDown(400);
-  }
-});
+  $('#home-wrapper').slideDown(400);
+}
+var showAbout = function(){
+  $('section').hide();
+  $('#about-me').slideDown(500)
+}
+var showBlog = function(){
+  $('section').hide();
+  $('#blog-display').slideDown(500);
+}
+var showGuestBook = function(){
+  $('section').hide();
+  $('#guest-book').slideDown(500)
+}
+
 
 //category filter change
 $('#category-filter').on('change',function(e){
