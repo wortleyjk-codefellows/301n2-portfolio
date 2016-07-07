@@ -16,8 +16,8 @@ var populateCategoryDropdown = function(element){
 }
 
 Data.populateBlogPage = function(){
+  var value = [];
   $.get('data/data.json',function(data,text,xhr){
-    var value = [];
     responseETag = xhr.getResponseHeader('Etag');
     if(localStorage.getItem('eTag')===null||responseETag!=localStorage.getItem('eTag')){
       localStorage.setItem('eTag',responseETag);
@@ -27,26 +27,29 @@ Data.populateBlogPage = function(){
     else{
       //do nothing
     }
-  });
-  value = JSON.parse(localStorage.getItem('blogArticles'));
-  Data.blogCollection = value.map(function(elem){
-    var templateScript = $('#template').html();
-    var template = Handlebars.compile(templateScript);
-    $('#blog-display').append(template(elem));
-    return elem;
-  });
-  Data.categoryCollection = Data.blogCollection.map(function(elem){
-    return elem.category;
-  }).reduce(function(currentElem,nextElem){
-    if(currentElem.indexOf(nextElem)==-1){
-      currentElem.push(nextElem);
-      populateCategoryDropdown(nextElem);
-    }
-    return currentElem;
-  },[]);
+  }).done(function(){
+    value = JSON.parse(localStorage.getItem('blogArticles'));
+    Data.blogCollection = value.map(function(elem){
+      var templateScript = $('#template').html();
+      var template = Handlebars.compile(templateScript);
+      $('#blog-display').append(template(elem));
+      return elem;
+    });
+    Data.categoryCollection = Data.blogCollection.map(function(elem){
+        return elem.category;
+      }).reduce(function(currentElem,nextElem){
+        if(currentElem.indexOf(nextElem)==-1){
+          currentElem.push(nextElem);
+          populateCategoryDropdown(nextElem);
+        }
+      return currentElem;
+      },[]);
   enableTeaserLinks();
   showTeaserArticle();
+  });
 }
+
+
 module.Data = Data
 })(window);
 
