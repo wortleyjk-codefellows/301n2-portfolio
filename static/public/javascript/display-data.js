@@ -17,7 +17,7 @@ var populateCategoryDropdown = function(element){
 
 Data.populateBlogPage = function(){
   var value = [];
-  $.get('data/data.json',function(data,text,xhr){
+  $.get('/getBlogData',function(data,text,xhr){
     responseETag = xhr.getResponseHeader('Etag');
     if(localStorage.getItem('eTag')===null||responseETag!=localStorage.getItem('eTag')){
       localStorage.setItem('eTag',responseETag);
