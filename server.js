@@ -10,6 +10,9 @@ app.get('/', function (req, res) {
 app.get('/getBlogData', function (req, res){
   res.sendFile(__dirname+'/app/data/data.json');
 });
+app.get('/getAuthToken', function (req,res){
+  res.sendFile(__dirname+'/app/data/authToken.json')
+})
 
 app.listen(3000, function () {
   console.log('listening to port: 3000');

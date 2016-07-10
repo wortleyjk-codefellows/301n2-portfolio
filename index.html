@@ -37,10 +37,15 @@
       </select>
     </section>
     <section id='about-me'>
-      <h2>Introduction</h2>
-      <p>My name is James Wortley. I'm a Quality Assurance Tester for Amazon Inc. I have been building web applications for almost a year now and I'm looking forward for many more years of learning along the way</p>
-      <br>
-      <p>My hobbies include table tennis, bowling and billiards. On my spare time, I test to read up on the latest javascript libraries to keep up to date with the most recent solutions to software challenges.</p>
+      <div id='intro'>
+        <h2>Introduction</h2>
+        <p>My name is James Wortley. I'm a Quality Assurance Tester for Amazon Inc. I have been building web applications for almost a year now and I'm looking forward for many more years of learning along the way</p>
+        <br>
+        <p>My hobbies include table tennis, bowling and billiards. On my spare time, I test to read up on the latest javascript libraries to keep up to date with the most recent solutions to software challenges. </p>
+      </div>
+      <div id = 'github-data'>
+        <h2>Current Github Projects</h2>
+      </div>
     </section>
     <section id='guest-book'>
       <h1>Guest Book</h1>
@@ -64,9 +69,21 @@
     </div>
     </article>
   </script>
+  <script id="gh-template" type="text/x-handlebars-template">
+    <div>
+      <h1>{{name}}</h1>
+      <div>
+      <h2><a href="{{{html_url}}}">{{full_name}}</a></h2>
+      </div>
+      <hr/>
+    </div>
+    </article>
+  </script>
   </div>
-  <script src="public/javascript/events.js"></script>
-  <script src="public/javascript/display-data.js"></script>
+  <script type="text/javascript" src='public/javascript/githubData.js'></script>
+  <script type="text/javascript" src='public/javascript/githubRPC.js'></script>
+  <script type="text/javascript" src="public/javascript/events.js"></script>
+  <script type="text/javascript" src="public/javascript/display-data.js"></script>
   <script type="text/javascript" src='public/javascript/page.js'></script>
   <script type="text/javascript" src='public/javascript/routes.js'></script>
   <script type="text/javascript">

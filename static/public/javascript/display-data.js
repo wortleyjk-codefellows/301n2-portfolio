@@ -48,8 +48,6 @@ Data.populateBlogPage = function(){
   showTeaserArticle();
   });
 }
-
-
 module.Data = Data
 })(window);
 
