@@ -72,6 +72,7 @@ var showHome = function(){
 var showAbout = function(){
   $('section').hide();
   $('#about-me').slideDown(500)
+  ghData.getData();
 }
 var showBlog = function(){
   $('section').hide();
