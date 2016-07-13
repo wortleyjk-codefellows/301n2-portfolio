@@ -15,7 +15,7 @@
   // }
 
   ghData.getData = function(){
-    $.get('//github/data',function(data){
+    $.get('/github/data',function(data){
       display(data);
     })
   }
