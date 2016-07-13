@@ -23,8 +23,6 @@ app.get('/github/data', proxyGH);
 //   res.sendFile(__dirname+'/app/data/authToken.json')
 // });
 
-app.get('')
-
 
 
 
