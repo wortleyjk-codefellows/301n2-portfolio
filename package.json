@@ -5,7 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.14.0",
-    "express-http-proxy": "^0.7.4"
+    "express-request-proxy": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
