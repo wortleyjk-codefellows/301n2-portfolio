@@ -27,7 +27,7 @@ app.get('/github/data', proxyGH);
 
 
 
-app.listen(3000, function () {
+app.listen(process.env.PORT, function () {
   console.log('listening to port: 3000');
   console.log(__dirname);
 });
