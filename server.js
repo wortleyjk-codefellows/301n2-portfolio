@@ -2,6 +2,7 @@ var express = require('express');
 var path = ('path');
 var app = express();
 var reqProxy = require('express-request-proxy');
+
 app.use(express.static(__dirname+'/static'));
 
 var proxyGH = function(request, response) {
