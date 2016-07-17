@@ -8,10 +8,16 @@
       $('#github-data').append(html);
     })
   }
+  // ghData.getData = function(){
+  // $.get('/getAuthToken',function(data){
+  //   getGithubData(data.ghToken,display);
+  //   });
+  // }
+
   ghData.getData = function(){
-  $.get('/getAuthToken',function(data){
-    getGithubData(data.ghToken,display);
-    });
+    $.get('/github/data',function(data){
+      display(data);
+    })
   }
   module.ghData = ghData
 })(window);

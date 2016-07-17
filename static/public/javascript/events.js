@@ -1,21 +1,35 @@
+$('#category-filter').on('change',function(e){
+  var category = $(this).val();
+  if(category == ''){
+    page('/blog/all')
+  }
+  else{
+    page('/blog/'+category);
+  }
+});
 
+var clearCurrentBlog = function(ctx,next){
+  $('#blog-display > article').slideUp(400);
+  next();
+}
 
-var filterCategoryChange = function(){
-  $('#category-filter').on('change',function(e){
-    var categoryValue = $(this).val();
-    var $Article = $('#blog-display > article');
+var getCurrentBlogFilter = function(ctx,next){
+  ctx.params.category = $('#category-filter').val();
+  next();
+}
+
+var viewFilteredBlogs = function(ctx){
+  var $Article = $('#blog-display > article');
     $Article.slideUp(400);
-    if(categoryValue == ''){
+    if(ctx.params.category == 'all'){
       $Article.slideDown(400);
       $('#category-filter > option:eq(0)').text('--Select a Category--');
     }
     else{
-      $("article[data-category='"+categoryValue+"'").slideDown(400);
+      $("article[data-category='"+ctx.params.category+"'").slideDown(400);
       $('#category-filter > option:eq(0)').text('--Show All--');
     }
-  });
 }
-
 var showTeaserArticle = function(){
     $('a.read-more').on('click',function(e){
     e.preventDefault();
@@ -53,30 +67,16 @@ var showAbout = function(){
   $('#about-me').slideDown(500)
   ghData.getData();
 }
-var showBlog = function(){
+var showBlog = function(ctx,next){
   $('section').hide();
   $('#blog-display').slideDown(500);
+  Data.populateBlogPage()
+  next();
 }
 var showGuestBook = function(){
   $('section').hide();
   $('#guest-book').slideDown(500)
 }
-
-
-//category filter change
-$('#category-filter').on('change',function(e){
-    var categoryValue = $(this).val();
-    var $Article = $('#blog-display > article');
-    $Article.slideUp(400);
-    if(categoryValue == ''){
-      $Article.slideDown(400);
-      $('#category-filter > option:eq(0)').text('--Select a Category--');
-    }
-    else{
-      $("article[data-category='"+categoryValue+"'").slideDown(400);
-      $('#category-filter > option:eq(0)').text('--Show All--');
-    }
-});
 
 //Mobile menu collapse
 $('.mobile-icon').on('click',function(e){
