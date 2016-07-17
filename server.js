@@ -26,10 +26,9 @@ app.get('/github/data', proxyGH);
 //   res.sendFile(__dirname+'/app/data/authToken.json')
 // });
 
-
-
-
-
+app.get('*',function (req, res){
+  res.sendFile(__dirname+'/index.html');
+})
 app.listen(port, function () {
   console.log('listening to port: 3000');
   console.log(__dirname);
