@@ -5,6 +5,8 @@ var reqProxy = require('express-request-proxy');
 
 app.use(express.static(__dirname+'/static'));
 
+var port = process.env.PORT || 3000;
+
 var proxyGH = function(request, response) {
   (reqProxy({
     url: 'https://api.github.com/user/repos',
@@ -28,7 +30,7 @@ app.get('/github/data', proxyGH);
 
 
 
-app.listen(process.env.PORT, function () {
+app.listen(port, function () {
   console.log('listening to port: 3000');
   console.log(__dirname);
 });

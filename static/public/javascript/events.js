@@ -1,20 +1,32 @@
 
-
+//changed to filter by routes on Page.js()
 var filterCategoryChange = function(){
   $('#category-filter').on('change',function(e){
     var categoryValue = $(this).val();
     var $Article = $('#blog-display > article');
     $Article.slideUp(400);
     if(categoryValue == ''){
+
       $Article.slideDown(400);
       $('#category-filter > option:eq(0)').text('--Select a Category--');
     }
     else{
+      //changed the request below to a route
       $("article[data-category='"+categoryValue+"'").slideDown(400);
+
+
       $('#category-filter > option:eq(0)').text('--Show All--');
     }
   });
 }
+
+var displayArticle = function($jqObj){
+
+}
+
+
+
+
 
 var showTeaserArticle = function(){
     $('a.read-more').on('click',function(e){
@@ -44,23 +56,23 @@ var enableTeaserLinks = function(){
   });
 }
 
-var showHome = function(){
-  $('section').hide();
-  $('#home-wrapper').slideDown(400);
-}
-var showAbout = function(){
-  $('section').hide();
-  $('#about-me').slideDown(500)
-  ghData.getData();
-}
-var showBlog = function(){
-  $('section').hide();
-  $('#blog-display').slideDown(500);
-}
-var showGuestBook = function(){
-  $('section').hide();
-  $('#guest-book').slideDown(500)
-}
+// var showHome = function(){
+//   $('section').hide();
+//   $('#home-wrapper').slideDown(400);
+// }
+// var showAbout = function(){
+//   $('section').hide();
+//   $('#about-me').slideDown(500)
+//   ghData.getData();
+// }
+// var showBlog = function(){
+//   $('section').hide();
+//   $('#blog-display').slideDown(500);
+// }
+// var showGuestBook = function(){
+//   $('section').hide();
+//   $('#guest-book').slideDown(500)
+// }
 
 
 //category filter change
